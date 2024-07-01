@@ -106,8 +106,8 @@ export const FormatCitations = (citation: DocumentSearchResponse[]) => {
     withoutEmbedding.push({
       score: d.score,
       document: {
-        metadata: d.document.metadata,
-        pageContent: d.document.pageContent,
+        metadata: d.document.metadata || d.document.title || d.document.metadata_storage_name,
+        pageContent: d.document.pageContent || d.document.content || d.document.chunk,
         chatThreadId: d.document.chatThreadId,
         id: "",
         user: "",
